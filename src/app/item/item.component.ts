@@ -6,17 +6,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './item.component.html',
-  styleUrl: './item.component.scss'
+  styleUrls: ['./item.component.scss'] 
 })
 export class ItemComponent {
-  @Input() object:any = ''
-  @Input() object_key:any = ''
-  @Input() type:number = 0
+  @Input() object: any = '';
+  @Input() objectKey: any = '';  
+  @Input() type: number = 0;
 
-  @Output() sendData = new EventEmitter()
-  
-  public sendPersonToParent(val:number){
-    console.log("Sending person...")
-    this.sendData.emit({key: this.object_key, operation: val})
+  @Output() sendData = new EventEmitter<{ key: any; operation: number }>();
+
+  public sendPersonToParent(operation: number): void {
+    console.log("Sending person...");
+    this.sendData.emit({ key: this.objectKey, operation }); 
   }
 }

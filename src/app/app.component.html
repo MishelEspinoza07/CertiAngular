@@ -1,14 +1,16 @@
 <div class="container">
-  <div class="column">
-<search (sendData)="receiveSearchTerm($event)"></search>
-<list [list]="list" (sendData)="receiveData($event)"></list>
-</div>
-<div class="column">
-<div>
-  <button (click)="tab=1" [style.backgroundColor]="'cyan'">Personal</button>
-  <button (click)="tab=2" [style.backgroundColor]="'orange'">Geographic</button>
-  <button (click)="tab=3" [style.backgroundColor]="'yellow'">Messages</button>
-</div>
-<app-card [entry]="objectCard" [tab]="tab"></app-card>
-</div>
+  <div class="column search-column">
+    <search (sendData)="receiveSearchTerm($event)"></search>
+    <list [list]="list" (sendData)="receiveData($event)"></list>
+  </div>
+
+  <div class="column actions-column">
+    <div class="button-group">
+      <button (click)="tab = 1" [ngClass]="{'active-button': tab === 1}" style="background-color: cyan;">Personal</button>
+      <button (click)="tab = 2" [ngClass]="{'active-button': tab === 2}" style="background-color: orange;">Geographic</button>
+      <button (click)="tab = 3" [ngClass]="{'active-button': tab === 3}" style="background-color: yellow;">Messages</button>
+    </div>
+
+    <app-card [entry]="objectCard" [tab]="tab"></app-card>
+  </div>
 </div>
