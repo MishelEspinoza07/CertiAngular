@@ -1,11 +1,28 @@
-<div *ngIf="item">
-    <h2>{{ item.name }} {{ item.lastName }}</h2>
-    <p>{{ item.type === 'student' ? 'Estudiante' : 'Profesor' }}</p>
-    <p>Dirección: {{ item.address.number }} {{ item.address.street }}, {{ item.address.zone }}</p>
-    <p>País: {{ item.country }}, Provincia: {{ item.province }}</p>
-  
-    <h3>Mensajes</h3>
-    <ul>
-      <li *ngFor="let message of item.messages">{{ message }}</li>
-    </ul>
-  </div>
+<div [style.backgroundColor]="tab === 1 ? 'cyan' : (tab === 2 ? 'orange' : 'yellow')" [style.padding]="'20px'">
+    @switch(tab){
+        @case(1){
+            <div>
+                <p><strong>Name:</strong> {{entry[1].name}} {{entry[1].lastName}}</p>
+                <p><strong>Type:</strong> {{entry[1].type}}</p>
+                <p><strong>Average Score:</strong> {{(entry[1].firstTestScore + entry[1].secondTestScore + entry[1].finalTestScore) / 3}}</p>
+            </div>
+        }
+        @case(2){
+            <div>
+                <p><strong>Address:</strong></p>
+                <p>{{entry[1].address.number}}, {{entry[1].address.street}}, {{entry[1].address.zone}}</p>
+                <p><strong>Country:</strong> {{entry[1].country}}</p>
+                <p><strong>Province:</strong> {{entry[1].province}}</p>
+              </div>
+        }
+        @case(3){
+            <div>
+                <search (sendData)="receiveSearchTerm($event)"></search>
+                <p><strong>Messages:</strong></p>
+                <ul>
+                  <div *ngFor="let message of messagesList" ><item [object]="message" [type]="0" [object_key]=""></item></div>
+                </ul>
+            </div>
+        }
+    }
+</div>

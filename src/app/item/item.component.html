@@ -1,4 +1,4 @@
-<div [style.backgroundColor]="type === 0 ? '' : (object.type === 'student' ? 'blue' : 'orange')">
+<div [style.backgroundColor]="type === 0 ? 'white' : (object.type === 'student' ? 'cyan' : 'orange')">
     <ng-container *ngIf="type === 0; else elseBlock">
         <p>{{ object.message }}</p>
       </ng-container>

@@ -1,7 +1,7 @@
 import { ListComponent } from './list/list.component';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { data } from './card/data';
+import { data } from '../data';
 import { CommonModule } from '@angular/common';
 import { ItemComponent } from './item/item.component';
 import { SearchComponent } from './search/search.component';
@@ -16,10 +16,12 @@ import { CardComponent } from './card/card.component';
 })
 export class AppComponent implements OnInit{
   
-  title = 'nuevo_proyecto_angular';
+  title = 'Examen';
   list:any[] = []
   originalList: any[] = [];
   objectCard:any = ''
+  tab:number =1
+
   
   ngOnInit(): void {
     this.list=Object.entries(data);

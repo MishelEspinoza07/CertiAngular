@@ -6,9 +6,9 @@
 <div class="column">
 <div>
   <button (click)="tab=1" [style.backgroundColor]="'cyan'">Personal</button>
-  <button (click)="tab=2" [style.backgroundColor]="'pink'">Geographic</button>
+  <button (click)="tab=2" [style.backgroundColor]="'orange'">Geographic</button>
   <button (click)="tab=3" [style.backgroundColor]="'yellow'">Messages</button>
 </div>
-<card [entry]="objectCard" [tab]="tab"></card>
+<app-card [entry]="objectCard" [tab]="tab"></app-card>
 </div>
 </div>

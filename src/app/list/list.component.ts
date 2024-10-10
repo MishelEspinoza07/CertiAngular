@@ -10,7 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ListComponent {
   @Input() list:any[] = []
+
   @Output() sendData = new EventEmitter()
+  
   public sendPersonToParent(data:any){
     console.log("Sending person...")
     this.sendData.emit(data)
