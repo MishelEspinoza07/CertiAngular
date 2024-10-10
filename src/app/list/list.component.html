@@ -1,0 +1,3 @@
+<div *ngFor="let entry of list">
+    <item [object]="entry[1]" [object_key]="entry[0]" [type]="1" (sendData)="sendPersonToParent($event)"></item>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="item">
+    <h2>{{ item.name }} {{ item.lastName }}</h2>
+    <p>{{ item.type === 'student' ? 'Estudiante' : 'Profesor' }}</p>
+    <p>Dirección: {{ item.address.number }} {{ item.address.street }}, {{ item.address.zone }}</p>
+    <p>País: {{ item.country }}, Provincia: {{ item.province }}</p>
+  
+    <h3>Mensajes</h3>
+    <ul>
+      <li *ngFor="let message of item.messages">{{ message }}</li>
+    </ul>
+  </div>

@@ -1,0 +1,13 @@
+<div [style.backgroundColor]="type === 0 ? '' : (object.type === 'student' ? 'blue' : 'orange')">
+    <ng-container *ngIf="type === 0; else elseBlock">
+        <p>{{ object.message }}</p>
+      </ng-container>
+      
+      <ng-template #elseBlock>
+        <div class="container">
+          <p>{{ object.name }} {{ object.lastName }} - {{ object.type }}</p>
+          <button (click)="sendPersonToParent(0)">Show</button>
+          <button (click)="sendPersonToParent(1)">Delete</button>
+        </div>
+      </ng-template>
+</div>
