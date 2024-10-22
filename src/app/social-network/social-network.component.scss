@@ -1,0 +1,24 @@
+.notifications-container {
+  max-height: 200px;
+  overflow-y: auto; /* Scroll vertical */
+  margin-top: 10px;
+}
+
+.notification-box {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  color: #ffffff; 
+  font-weight: bold;
+  text-align: center;
+  background-color: #B2E0B2; /* Verde pastel claro */
+  width: 100%;
+  box-sizing: border-box; 
+}
+  
+  
+.youtube { background-color: rgba(222, 126, 126, 0.911); }
+.facebook { background-color: lightblue; }
+.tiktok { background-color: rgb(220, 147, 220); }
+.instagram { background-color: rgb(222, 222, 135); color: black; }
+.whatsapp { background-color: rgb(138, 247, 138); }

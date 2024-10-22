@@ -1,0 +1,8 @@
+<!-- social-networks.component.html -->
+<div class="social-networks">
+    <div *ngFor="let network of socialNetworks" class="card" [ngClass]="network.platform">
+      {{ network.platform }}
+      <span *ngIf="network.platformType === 'premium'">⭐</span>
+    </div>
+  </div>
+  

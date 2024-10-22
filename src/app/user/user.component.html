@@ -1,0 +1,53 @@
+<!-- user-component.component.html -->
+<div class="user-component">
+    <nav>
+      <button (click)="toggleView()">User</button>
+      <button (click)="toggleView()">Notifications ({{ user.notifications.length }})</button>
+    </nav>
+  
+    <div *ngIf="!showNotifications">
+        <div class="user-info">
+            <h3>Name: {{ user.name }}</h3>
+            <p>Age: {{ user.age }}</p>
+            <p>Status: {{ user.status }}</p>
+          
+            <!-- Tipo de suscripción -->
+            <div class="subscription-type">
+              <span (click)="changeSubscriptionType('free')" 
+                    [ngClass]="{'selected': user.subscriptionType === 'free'}">
+                Free
+              </span>
+              <span (click)="changeSubscriptionType('premium')" 
+                    [ngClass]="{'selected': user.subscriptionType === 'premium'}">
+                Premium
+              </span>
+            </div>
+          
+            <p>Amount available: {{ user.amountAvailable }}$</p>
+          
+            <!-- Redes sociales no suscritas -->
+            <h4>Social Networks</h4>
+            <div *ngFor="let network of getUnsubscribedSocialNetworks()" 
+                 class="social-network-box" [ngStyle]="{'background-color': networkColor[network.platform]}">
+              {{ network.platform }}
+              <button (click)="addSubscription(network.id)" class="add-btn">+</button>
+            </div>
+          
+            <!-- Redes sociales suscritas -->
+            <h4>Subscriptions</h4>
+            <div *ngFor="let networkId of user.subscriptions" 
+                 class="social-network-box" 
+                 [ngStyle]="{'background-color': networkColor[getPlatformById(networkId)]}">
+              {{ getPlatformById(networkId) }}
+              <button (click)="removeSubscription(networkId)" class="remove-btn">x</button>
+            </div>
+          
+            <button (click)="closeAccount()" class="close-account-btn">Close Account</button>
+          </div>
+    </div>
+  
+    <div *ngIf="showNotifications">
+      <app-notifications [notifications]="user.notifications"></app-notifications>
+    </div>
+  </div>
+  
