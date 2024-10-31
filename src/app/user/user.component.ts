@@ -14,6 +14,7 @@ import { socialNetworks } from '../../data';
 export class UserComponent {
   @Input() user: any;
   showNotifications = false;
+  isClosed = false;
 
   toggleView() {
     this.showNotifications = !this.showNotifications;
@@ -55,7 +56,6 @@ export class UserComponent {
 
   // Función para cerrar la cuenta (lógica para eliminar usuario)
   closeAccount() {
-    // Aquí podrías manejar la eliminación del usuario
-    console.log('Cuenta eliminada para:', this.user.name);
+    this.isClosed = true; 
   }
 }

@@ -15,6 +15,12 @@
   width: 100%;
   box-sizing: border-box; 
 }
+
+button {
+  display: block;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
   
   
 .youtube { background-color: rgba(222, 126, 126, 0.911); }

@@ -20,13 +20,14 @@ export class NotificationsComponent {
     whatsapp: 'green'
   };
 
-  // Función para obtener el color según la plataforma
+
   getColor(notification: string): string {
     if (notification.includes('youtube')) return this.platformColors['youtube'];
     if (notification.includes('tiktok')) return this.platformColors['tiktok'];
     if (notification.includes('instagram')) return this.platformColors['instagram'];
     if (notification.includes('facebook')) return this.platformColors['facebook'];
     if (notification.includes('whatsapp')) return this.platformColors['whatsapp'];
-    return 'white'; // Color por defecto si no se encuentra coincidencia
+    return 'white'; 
+
   }
 }

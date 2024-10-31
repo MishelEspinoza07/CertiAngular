@@ -31,7 +31,7 @@ export const socialNetworks = [
     },
 ];
 
-export const data = {
+export const data: Record<string, Usuario> = { 
     U1: {
         user_id: '1',
         name: 'Juan Perez',
@@ -110,3 +110,14 @@ export const data = {
         ],
     },
 };
+
+interface Usuario {
+    user_id: string;
+    name: string;
+    age: number;
+    status: string;
+    amountAvailable: number;
+    subscriptionType: string;
+    subscriptions: number[];
+    notifications: string[];
+}

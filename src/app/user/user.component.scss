@@ -71,3 +71,29 @@
 .close-account-btn:hover {
   background-color: #F48FB1; /* Color más oscuro al pasar el mouse */
 }
+
+.social-network-box-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto; 
+  gap: 10px; 
+}
+
+.social-network-box {
+  flex: 0 0 auto; 
+  padding: 10px;
+  margin: 10px 0;
+  margin: 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  min-width: 75px;
+}
+
+
+.add-btn, .remove-btn {
+  background-color: white;
+  border: none;
+}
