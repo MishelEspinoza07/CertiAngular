@@ -1,22 +1,8 @@
-.users-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch; 
-  max-height: none; 
-  overflow-y: auto; 
-}
-
-.users {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas por fila */
-  gap: 40px;
-  padding: 20px;
-  height: auto; 
-}
-
-.user-wrapper {
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  height: auto; 
-}
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }

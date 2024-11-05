@@ -1,0 +1,31 @@
+<div [ngClass]="{
+    'user-card': password === '123',
+    'user-card-black': password === 'hola'
+}">
+    <p [ngStyle]="{
+        'background-color': password === 'red' ? 'red' : 'yellow',
+    }">USER CARD COMPONENT</p>
+    <p [class.user-card]="password === '123'">INPUT NAME: {{ name }}</p>
+    <p [style.background-color]="password === 'red' ? 'red' : 'yellow'">INPUT email: {{ email }}</p>
+
+    <input type="text" [(ngModel)]="password">
+  
+    <button #buttonShow (click)="showButton= !showButton">
+        show Button
+    </button>
+    @if(showButton){
+        <button #buttonTest (click)="onSendData()">
+            send Data
+        </button>
+    }
+
+    <p>PASSWORD = {{password}}</p>
+
+    <ng-content></ng-content>
+
+
+    <app-card></app-card>
+    <app-navbar></app-navbar>
+    <app-alert></app-alert>
+
+</div>
