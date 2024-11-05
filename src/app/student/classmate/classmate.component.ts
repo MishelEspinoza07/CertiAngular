@@ -3,8 +3,8 @@ import { ExamService } from '../exam.service';
 
 @Component({
   selector: 'app-classmate',
-  templateUrl: './classmate.component.html',
-  styleUrl: './classmate.component.scss'
+  styleUrl: './classmate.component.scss',
+  templateUrl: './classmate.component.html'
 })
 export class ClassmateComponent {
 

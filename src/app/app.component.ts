@@ -16,6 +16,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { StudentService } from "./services/student.service";
 import { AuthService } from "./auth.service";
 
+
 interface Person {
   name: string;
   lastName: string;
@@ -50,7 +51,7 @@ interface IForm {
     FormsModule, 
     ReactiveFormsModule
   ],
-  templateUrl: "./app.component.html",
+  templateUrl: './app.component.html',
   styleUrl: "./app.component.scss",
 })
 
