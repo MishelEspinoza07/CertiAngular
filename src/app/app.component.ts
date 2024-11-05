@@ -98,10 +98,10 @@ export class AppComponent {
 
   youtube = from([1, 2, 3, 4, 5, 6]); //Nuevo observable
 
-  constructor(private _authService: AuthService,private router: Router, private formBuilder:FormBuilder, private untypedFormBuilder : UntypedFormBuilder, private _studentService : StudentService) {
-   /* this._studentService.getStudents().subscribe((res) => {
+  constructor(private router: Router, private formBuilder:FormBuilder, private untypedFormBuilder : UntypedFormBuilder, private _studentService : StudentService) {
+    this._studentService.getStudents().subscribe((res) => {
       console.log('STUDENTS JSON: ', res)
-    }); */
+    }); 
     //const { name, age } = this.person;
     //console.log('desestructuracion', name, age)
 

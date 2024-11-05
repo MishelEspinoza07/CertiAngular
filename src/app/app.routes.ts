@@ -5,6 +5,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { GuardForm } from './guards/guard-form.guard';
 import { LoadGuard } from './guards/load.guard';
 
+
 export const routes: Routes = [
     {
         path: 'card/:studentId',
