@@ -9,7 +9,6 @@ import { ExamService } from '../exam.service';
 export class ClassmateComponent {
 
   newScore: number[] = []
-
   constructor(private _examService: ExamService){
     this._examService.getScoresAsObservable().subscribe(score => {
       console.log('SCORES: ', score)
