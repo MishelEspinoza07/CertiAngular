@@ -20,7 +20,7 @@ import { AuthService } from '../auth.service';
         <button class="mul" (click)="onMul()">Mul</button>
         <button class="reset" (click)="onReset()">Reset</button>
        <button class="reset" (click)="onLogin()">Login</button>
-        <button class="reset" [routerLink]="'/student'">Login without token</button>
+<button class="reset" [routerLink]="'/student'">Login without token</button>
       </div>
     </div>
   
@@ -39,7 +39,7 @@ export class CalculatorComponent implements OnInit {
   @Output() mul = new EventEmitter<number>();
   @Output() reset = new EventEmitter<void>();
 
-  constructor(private _activatedRoute: ActivatedRoute, private _authService: AuthService){
+  constructor(private _activatedRoute: ActivatedRoute, private _authService: AuthService, private _router: Router){
   }
   ngOnInit(): void{
     this._activatedRoute.queryParams.subscribe(params => {
@@ -69,5 +69,6 @@ export class CalculatorComponent implements OnInit {
   
   onLogin(){
     this._authService.login()
+    this._router.navigate(['/student'])
   }
 } 
