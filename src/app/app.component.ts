@@ -12,7 +12,8 @@ import { PurePipe } from "./pure.pipe";
 import { ImpurePipe } from "./impure.pipe";
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from "@angular/material/button";
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators, UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { StudentService } from "./services/student.service";
 import { AuthService } from "./auth.service";
 
@@ -45,8 +46,7 @@ interface IForm {
     ImpurePipe,
     MatCardModule,
     MatButtonModule,
-    FormsModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -79,8 +79,8 @@ export class AppComponent {
   animals: string[] = ["a", "b", "c", "d", "e", "f", "g"];
 
   person: Person = {
-    name: "Ernesto",
-    lastName: "Juarez",
+    name: "Mishel",
+    lastName: "Espinoza",
     age: 21,
   };
 
@@ -249,9 +249,9 @@ export class AppComponent {
     this.router.navigate(['cal'], {queryParams: {name: 'John', age: 20}})
   }
 
-  // onSubmit(data: any){
-  //   console.log("TEMPLATE DRIVEN FORM: ",data)
-  // }
+  onSubmit(data: any){
+    console.log("TEMPLATE DRIVEN FORM: ",data)
+ }
 
   // onPrintScore(){
   //   console.log("SCORE: ", this.scoreControl.value)
