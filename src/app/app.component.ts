@@ -12,8 +12,8 @@ import { PurePipe } from "./pure.pipe";
 import { ImpurePipe } from "./impure.pipe";
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from "@angular/material/button";
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators, UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
-import { FormsModule } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup,  UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
+import {  FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { StudentService } from "./services/student.service";
 import { AuthService } from "./auth.service";
 
@@ -46,7 +46,8 @@ interface IForm {
     ImpurePipe,
     MatCardModule,
     MatButtonModule,
-    FormsModule
+    FormsModule, 
+    ReactiveFormsModule
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -55,6 +56,7 @@ interface IForm {
 
 
 export class AppComponent {
+
 
   scoreControl = new FormControl<string>('asdasdasdasd', [Validators.required])
 
@@ -121,6 +123,7 @@ export class AppComponent {
     this.scoreControl.valueChanges.subscribe((res) => {
       console.log('SCORE VALUE OBSERVABLE: ', res)
     })
+
 
     this.studentForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -253,9 +256,9 @@ export class AppComponent {
     console.log("TEMPLATE DRIVEN FORM: ",data)
  }
 
-  // onPrintScore(){
-  //   console.log("SCORE: ", this.scoreControl.value)
-  // }
+ onPrintScore(){
+  console.log("SCORE: ", this.scoreControl.value)
+}
 
   // print(){
   //   console.log("FORM NAME: ", this.studentForm.get('name'))
