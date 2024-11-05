@@ -259,9 +259,9 @@ export class AppComponent {
   console.log("SCORE: ", this.scoreControl.value)
 }
 
-  // print(){
-  //   console.log("FORM NAME: ", this.studentForm.get('name'))
-  // }
+print(){
+  console.log("FORM NAME: ", this.studentForm.get('name'))
+}
   // onLogin(){
   //   this._authService.login()
   //   this.router.navigate(['student'])
