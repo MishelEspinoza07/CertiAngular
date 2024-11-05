@@ -12,8 +12,7 @@ import { PurePipe } from "./pure.pipe";
 import { ImpurePipe } from "./impure.pipe";
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from "@angular/material/button";
-import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 import { StudentService } from "./services/student.service";
 import { AuthService } from "./auth.service";
 
@@ -22,6 +21,7 @@ interface Person {
   lastName: string;
   age?: number;
 }
+
 interface IForm {
   name: string
   score: string
@@ -29,6 +29,7 @@ interface IForm {
   proffesor: string
   university: string
 }
+
 @Component({
   selector: "app-root",
   standalone: true,
@@ -61,6 +62,7 @@ export class AppComponent {
   scoreControl = new FormControl<string>('asdasdasdasd', [Validators.required])
 
   studentForm!: FormGroup 
+  
   student2Form!: UntypedFormGroup
 
   name:string='testname'
@@ -133,6 +135,7 @@ export class AppComponent {
       university: ['']
     })
 
+  
     this.student2Form = this.untypedFormBuilder.group({
       name: ['', Validators.required],
       score: [''],
@@ -140,7 +143,7 @@ export class AppComponent {
       proffesor: [''],
       university: ['']
     })
-
+    
     /* this.studentForm = new FormGroup({
       name: new FormControl<string>('sdasdasdasd', [Validators.required]),
       score: new FormControl<string>('sdfsdfsdf'),
@@ -148,10 +151,6 @@ export class AppComponent {
       proffesor: new FormControl<string>(''),
       university: new FormControl<string>('')
     }) */
-
-    /*this.studentForm.valueChanges.subscribe((res) => {
-      console.log('FORM GROUP OBSERVABLE: ', res)
-    })*/
   }
   onSendData(){
     console.log('FORM GROUP: ', this.studentForm)
