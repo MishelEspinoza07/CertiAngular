@@ -9,15 +9,8 @@ import { ExamService } from '../exam.service';
 })
 export class AverageComponent {
 
-  constructor(private _authService: AuthService, private _examService: ExamService){
-
-  }
-
+  constructor(private _authService: AuthService){}
   onPrint(){
     console.log("LOGGED USER: ", this._authService.getUser())
-  }
-
-  onSend(){
-  this._examService.sendNewScore([70,70,70])
   }
 }

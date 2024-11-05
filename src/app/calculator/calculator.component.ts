@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HistoryComponent } from '../history/history.component';
 import { ActivatedRoute } from '@angular/router';
+
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -18,7 +19,7 @@ import { AuthService } from '../auth.service';
         <button class="sum" (click)="onSum()">Sum</button>
         <button class="mul" (click)="onMul()">Mul</button>
         <button class="reset" (click)="onReset()">Reset</button>
-        <button class="reset" (click)="onLogin()">Login</button>
+       <button class="reset" (click)="onLogin()">Login</button>
         <button class="reset" [routerLink]="'/student'">Login without token</button>
       </div>
     </div>
@@ -38,7 +39,8 @@ export class CalculatorComponent implements OnInit {
   @Output() mul = new EventEmitter<number>();
   @Output() reset = new EventEmitter<void>();
 
-  constructor(private _activatedRoute: ActivatedRoute){}
+  constructor(private _activatedRoute: ActivatedRoute, private _authService: AuthService){
+  }
   ngOnInit(): void{
     this._activatedRoute.queryParams.subscribe(params => {
       console.log('query params: ', params)
@@ -63,5 +65,9 @@ export class CalculatorComponent implements OnInit {
     this.box2Value = 0;
     this.history = [];
     this.reset.emit();
+  }
+  
+  onLogin(){
+    this._authService.login()
   }
 } 
