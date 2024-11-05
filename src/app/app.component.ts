@@ -249,19 +249,19 @@ export class AppComponent {
     this.router.navigate(['cal'], {queryParams: {name: 'John', age: 20}})
   }
 
-  onSubmit(data: any){
-    console.log("TEMPLATE DRIVEN FORM: ",data)
-  }
+  // onSubmit(data: any){
+  //   console.log("TEMPLATE DRIVEN FORM: ",data)
+  // }
 
-  onPrintScore(){
-    console.log("SCORE: ", this.scoreControl.value)
-  }
+  // onPrintScore(){
+  //   console.log("SCORE: ", this.scoreControl.value)
+  // }
 
-  print(){
-    console.log("FORM NAME: ", this.studentForm.get('name'))
-  }
-  onLogin(){
-    this._authService.login()
-    this.router.navigate(['student'])
-  }
+  // print(){
+  //   console.log("FORM NAME: ", this.studentForm.get('name'))
+  // }
+  // onLogin(){
+  //   this._authService.login()
+  //   this.router.navigate(['student'])
+  // }
 }

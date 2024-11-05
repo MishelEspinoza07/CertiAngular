@@ -38,15 +38,11 @@ export class CalculatorComponent implements OnInit {
   @Output() mul = new EventEmitter<number>();
   @Output() reset = new EventEmitter<void>();
 
-  constructor(private _activatedRoute: ActivatedRoute, private _authService: AuthService, private _router: Router){
-
-  }
-
+  constructor(private _activatedRoute: ActivatedRoute){}
   ngOnInit(): void{
     this._activatedRoute.queryParams.subscribe(params => {
       console.log('query params: ', params)
     })
-
     console.log('query params snapshot: ', this._activatedRoute.snapshot.queryParams)
   }
 
@@ -68,8 +64,4 @@ export class CalculatorComponent implements OnInit {
     this.history = [];
     this.reset.emit();
   }
-  onLogin(){
-    this._authService.login()
-    this._router.navigate(['/student'])
-  }
-}
+} 
