@@ -1,0 +1,17 @@
+<div class="city-list">
+    <div class="city-input">
+      <input [(ngModel)]="newCity" placeholder="Agregar ciudad" />
+      <button (click)="addCity()">Agregar</button>
+    </div>
+    
+    <div class="city-filter">
+      <input [(ngModel)]="filterText" (input)="filterCities()" placeholder="Filtrar ciudades" />
+    </div>
+    
+    <ul class="city-items">
+        <li *ngFor="let city of filteredCities" (click)="deleteCity(city.name)">
+          {{ city.name }}
+        </li>
+      </ul>
+      
+  </div>
