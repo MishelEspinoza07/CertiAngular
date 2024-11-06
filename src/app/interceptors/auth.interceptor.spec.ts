@@ -1,13 +1,30 @@
-import { TestBed } from '@angular/core/testing';
-import { HttpInterceptorFn } from '@angular/common/http';
-import { authInterceptor } from './auth.interceptor';
-describe('authInterceptor', () => {
-  const interceptor: HttpInterceptorFn = (req, next) => 
-    TestBed.runInInjectionContext(() => authInterceptor(req, next));
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-  });
-  it('should be created', () => {
-    expect(interceptor).toBeTruthy();
-  });
-});
+
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { AuthService } from "../auth.service";
+import { Injectable } from "@angular/core";
+
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor{
+
+  constructor(private _authService: AuthService){}
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const token = this._authService.getToken();
+
+    console.log('token: ', token)
+    console.log('REQ:', req)
+    if (token){
+      const cloned = req.clone({
+        headers: req.headers.set('Authorization','Bearer' + token)
+      })
+
+      return next.handle(cloned);
+
+    }
+
+    return next.handle(req);
+  }
+
+}

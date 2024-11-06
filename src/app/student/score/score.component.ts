@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './score.component.html',
   styleUrl: './score.component.scss'
 })
+
 export class ScoreComponent implements OnInit{
   public students:any[] = []
   constructor(

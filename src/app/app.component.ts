@@ -98,10 +98,8 @@ export class AppComponent {
 
   youtube = from([1, 2, 3, 4, 5, 6]); //Nuevo observable
 
-  constructor(private router: Router, private formBuilder:FormBuilder, private untypedFormBuilder : UntypedFormBuilder, private _studentService : StudentService) {
-    this._studentService.getStudents().subscribe((res) => {
-      console.log('STUDENTS JSON: ', res)
-    }); 
+  constructor(private _authService: AuthService,private router: Router, private formBuilder:FormBuilder, private untypedFormBuilder : UntypedFormBuilder, private _studentService : StudentService) {
+    /* this._studentService.getStudents().subscribe((res) => { 
     //const { name, age } = this.person;
     //console.log('desestructuracion', name, age)
 
@@ -145,13 +143,10 @@ export class AppComponent {
       university: ['']
     })
     
-    /* this.studentForm = new FormGroup({
-      name: new FormControl<string>('sdasdasdasd', [Validators.required]),
-      score: new FormControl<string>('sdfsdfsdf'),
-      school: new FormControl<string>(''),
-      proffesor: new FormControl<string>(''),
-      university: new FormControl<string>('')
-    }) */
+  /*this.studentForm.valueChanges.subscribe((res) => {
+      console.log('FORM GROUP OBSERVABLE: ', res)
+    })
+    })*/
   }
   onSendData(){
     console.log('FORM GROUP: ', this.studentForm)
@@ -263,8 +258,8 @@ export class AppComponent {
 print(){
   console.log("FORM NAME: ", this.studentForm.get('name'))
 }
-  // onLogin(){
-  //   this._authService.login()
-  //   this.router.navigate(['student'])
-  // }
+onLogin(){
+  this._authService.login()
+  this.router.navigate(['student'])
+}
 }
